@@ -1,5 +1,10 @@
 <template>
-  <v-app>
+  <v-app
+    :dark="darkMode"
+  >
+    <app-bar
+      app
+    />
     <v-main>
       <v-container>
         <nuxt />
@@ -9,9 +14,21 @@
 </template>
 
 <script>
+import AppBar from '~/components/organisms/AppBar'
 export default {
+  components: { AppBar },
   data () {
     return {
+    }
+  },
+  computed: {
+    darkMode () {
+      return this.$store.getters['app/darkMode']
+    }
+  },
+  watch: {
+    darkMode (value) {
+      this.$vuetify.theme.dark = value
     }
   }
 }

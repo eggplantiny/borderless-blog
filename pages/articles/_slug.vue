@@ -4,6 +4,7 @@
       <nuxt-content
         :document="doc"
       />
+      <v-img src="~@/static/images/ryan.jpg" />
     </div>
   </v-container>
 </template>
