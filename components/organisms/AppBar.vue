@@ -1,12 +1,15 @@
 <template>
   <v-app-bar
     app
+    height="120"
     :elevation="0"
-    class=""
   >
     <v-spacer />
     <v-btn
+      class="mr-4"
+      color="primary"
       icon
+      x-large
       @click="toggleDarkMode"
     >
       <v-icon v-if="darkMode">

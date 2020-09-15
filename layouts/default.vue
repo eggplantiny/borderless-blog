@@ -1,12 +1,10 @@
 <template>
   <v-app
     :dark="darkMode"
+    class="ma-0 pa-0"
   >
-    <app-bar
-      app
-    />
     <v-main>
-      <v-container>
+      <v-container fluid class="ma-0 pa-0">
         <nuxt />
       </v-container>
     </v-main>
@@ -14,9 +12,8 @@
 </template>
 
 <script>
-import AppBar from '~/components/organisms/AppBar'
+
 export default {
-  components: { AppBar },
   data () {
     return {
     }
