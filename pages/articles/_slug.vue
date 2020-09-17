@@ -4,7 +4,7 @@
       <v-img
         :src="`/images/${backgroundImage}`"
         :dark="dark"
-        class="fixed-image"
+        class="fixed-image parallax"
       >
         <div class="text-area">
           <h1 class="mb-sm-2 mb-md-4">
@@ -52,10 +52,17 @@ export default {
   font-size: 18px;
   font-weight: 500;
 }
+
+.parallax::v-deep {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .fixed-image {
   width: 100vw;
   height: 100vh;
-  background-size: contain;
 
   .text-area {
     position: absolute;

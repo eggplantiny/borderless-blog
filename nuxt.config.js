@@ -99,5 +99,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+  /*
+  ** Compiler option configuration
+  */
+  compilerOptions: {
+    types: [
+      '@nuxt/types',
+      '@nuxt/content'
+    ]
   }
 }

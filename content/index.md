@@ -7,9 +7,13 @@ description: Hello World!
 
 dark: true
 
-backgroundImage: 'back1.jpg'
+backgroundImage: back1.jpg
+
+ryanImage: ryan.jpg
 
 ---
+
+![ryan](/images/ryan.jpg)
 
 ## What is Lorem Ipsum?
 
