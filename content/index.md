@@ -1,7 +1,11 @@
 ---
-title: Hello World
+title: 이것은 제목이라네 길이는 적당하지
+
+subtitle: 이것은 부제목이라네 길이는 아주 쓸데없이 길고 재미없는 글이지.
 
 description: Hello World!
+
+dark: true
 
 backgroundImage: 'back1.jpg'
 
