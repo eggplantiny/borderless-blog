@@ -13,7 +13,7 @@ ryanImage: ryan.jpg
 
 ---
 
-![ryan](/images/ryan.jpg)
+![ryan](/blog/images/ryan.jpg)
 
 ## What is Lorem Ipsum?
 

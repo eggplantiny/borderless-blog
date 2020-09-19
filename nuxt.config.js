@@ -12,6 +12,12 @@ export default {
   */
   target: 'static',
   /*
+  ** router
+  */
+  router: {
+    base: '/blog/'
+  },
+  /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
@@ -108,5 +114,17 @@ export default {
       '@nuxt/types',
       '@nuxt/content'
     ]
+  },
+  /*
+  ** generate
+  */
+  generate: {
+    async routes () {
+      const { $content } = require('@nuxt/content')
+      const files = await $content({ deep: true }).only(['path']).fetch()
+
+      return files.map(file => file.path === '/index' ? '/' : file.path)
+    }
   }
+
 }

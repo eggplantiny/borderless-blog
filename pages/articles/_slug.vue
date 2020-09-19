@@ -2,7 +2,7 @@
   <v-layout>
     <div class="test">
       <v-img
-        :src="`/images/${backgroundImage}`"
+        :src="`/blog/images/${backgroundImage}`"
         :dark="dark"
         class="fixed-image parallax"
       >
