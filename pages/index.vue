@@ -7,5 +7,9 @@
 <script>
 
 export default {
+  async asyncData ({ $content }) {
+    const content = await $content('index').fetch()
+    console.log(content)
+  }
 }
 </script>
