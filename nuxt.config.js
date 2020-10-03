@@ -123,8 +123,9 @@ export default {
       const { $content } = require('@nuxt/content')
       const files = await $content({ deep: true }).only(['path']).fetch()
 
-      return files.map(file => file.path === '/index' ? '/' : file.path)
+      console.log(files)
+
+      return files.map(file => file.path === '/index' ? '/' : `/articles${file.path}`)
     }
   }
-
 }

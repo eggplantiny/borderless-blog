@@ -18,4 +18,3 @@ export const actions = {
 export const getters = {
   darkMode: state => state.darkMode
 }
-
