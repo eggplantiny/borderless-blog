@@ -51,6 +51,7 @@ export default {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 18px;
   font-weight: 500;
+  min-height: 200vh;
 }
 
 .parallax::v-deep {
