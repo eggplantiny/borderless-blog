@@ -1,28 +1,25 @@
 <template>
-  <v-layout>
-    <div class="test">
-      <v-img
-        :src="`/blog/images/${backgroundImage}`"
-        :dark="dark"
-        class="fixed-image parallax"
-      >
-        <div class="text-area">
-          <h1 class="mb-sm-2 mb-md-4">
-            {{ title }}
-          </h1>
-          <h3>
-            {{ subtitle }}
-          </h3>
-        </div>
-      </v-img>
-
-      <article>
-        <nuxt-content
-          :document="doc"
-        />
-      </article>
-    </div>
-  </v-layout>
+  <section>
+    <v-img
+      :src="`/blog/images/${backgroundImage}`"
+      :dark="dark"
+      class="fixed-image"
+    >
+      <div class="text-area">
+        <h1 class="mb-sm-2 mb-md-4">
+          {{ title }}
+        </h1>
+        <h3>
+          {{ subtitle }}
+        </h3>
+      </div>
+    </v-img>
+    <article>
+      <nuxt-content
+        :document="doc"
+      />
+    </article>
+  </section>
 </template>
 
 <script>
@@ -47,23 +44,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.test {
+section {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 18px;
   font-weight: 500;
-  min-height: 200vh;
-}
-
-.parallax::v-deep {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .fixed-image {
   width: 100vw;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
 
   .text-area {
     position: absolute;
@@ -89,9 +82,12 @@ export default {
 
 article {
   max-width: 800px;
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
+
+  margin-top: 100vh;
   padding: 0 20px;
+  height: 100vh;
+  z-index: 1;
 }
 </style>
