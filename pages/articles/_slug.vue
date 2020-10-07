@@ -88,6 +88,7 @@ article {
   margin-top: 100vh;
   padding: 0 20px;
   height: 100vh;
-  z-index: 1;
+
+  z-index: 10;
 }
 </style>
