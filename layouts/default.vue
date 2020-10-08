@@ -4,7 +4,10 @@
     class="ma-0 pa-0"
   >
     <v-main>
-      <v-container fluid class="ma-0 pa-0">
+      <v-container
+        fluid
+        class="ma-0 pa-0 fill-height"
+      >
         <nuxt />
       </v-container>
     </v-main>
