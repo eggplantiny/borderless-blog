@@ -17,9 +17,10 @@
       </v-img>
     </div>
 
-    <article>
+    <article class="pa-4 pa-md-6 pa-lg-8">
       <nuxt-content
         :document="doc"
+        class="content"
       />
     </article>
   </section>
@@ -55,16 +56,19 @@ section {
   height: 100%;
 }
 
-.article {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+article {
 
   margin-top: 100vh;
-  padding: 0 20px;
   height: 100vh;
 
-  z-index: 5;
+  z-index: 10;
+  position: relative;
+  background-color: white;
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
 .cover {
@@ -78,6 +82,7 @@ section {
   .bg {
     width: 100%;
     height: 100%;
+    z-index: 1;
     .text-area {
       position: absolute;
       top: 29.5%;

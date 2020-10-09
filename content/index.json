@@ -1,5 +1,10 @@
 [
     {
+        "title": "두번째 글쓰기",
+        "backgroundImage": "back1.jpg",
+        "path": "/2"
+    },
+    {
         "title": "첫번째 글쓰기",
         "backgroundImage": "back1.jpg",
         "path": "/1"
@@ -8,10 +13,5 @@
         "title": "세번째 글쓰기",
         "backgroundImage": "back1.jpg",
         "path": "/3"
-    },
-    {
-        "title": "두번째 글쓰기",
-        "backgroundImage": "back1.jpg",
-        "path": "/2"
     }
 ]
