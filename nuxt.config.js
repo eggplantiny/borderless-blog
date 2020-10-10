@@ -6,7 +6,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  // mode: 'universal',
+  mode: 'universal',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -89,6 +89,7 @@ export default {
     customVariables: ['~/assets/styles/vuetify.scss'],
     theme: {
       themes: {
+        disable: true,
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
@@ -106,6 +107,10 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    splitChunks: {
+      pages: false
+    },
+    extractCSS: true
   },
   /*
   ** Compiler option configuration
