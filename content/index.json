@@ -1,8 +1,8 @@
 [
     {
-        "title": "첫번째 글쓰기",
+        "title": "세번째 글쓰기",
         "backgroundImage": "back1.jpg",
-        "path": "/1"
+        "path": "/3"
     },
     {
         "title": "두번째 글쓰기",
@@ -10,8 +10,8 @@
         "path": "/2"
     },
     {
-        "title": "세번째 글쓰기",
+        "title": "첫번째 글쓰기",
         "backgroundImage": "back1.jpg",
-        "path": "/3"
+        "path": "/1"
     }
 ]
