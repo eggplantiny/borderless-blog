@@ -6,18 +6,18 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  // mode: 'universal',
-  mode: 'history',
+  mode: 'universal',
+  // mode: 'history',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'static',
+  // target: 'static',
   /*
   ** router
   */
   router: {
-    base: '/blog/'
+    base: '/blog'
   },
   /*
   ** Headers of the page
