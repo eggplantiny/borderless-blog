@@ -12,12 +12,12 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  // target: 'static',
+  target: 'static',
   /*
   ** router
   */
   router: {
-    base: '/blog'
+    base: '/blog/'
   },
   /*
   ** Headers of the page
@@ -58,7 +58,7 @@ export default {
   */
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/vuetify',
+    '@nuxtjs/vuetify'
   ],
   /*
   ** Nuxt.js modules
@@ -108,10 +108,6 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    splitChunks: {
-      pages: false
-    },
-    extractCSS: true
   },
   /*
   ** Compiler option configuration
@@ -126,7 +122,7 @@ export default {
   ** generate
   */
   generate: {
-    subFolders: false,
+    fallback: true,
     async routes () {
       const { $content } = require('@nuxt/content')
       let files = await $content({ deep: true }).only(['path', 'title', 'backgroundImage']).fetch()
