@@ -6,8 +6,7 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
-  // mode: 'history',
+  // mode: 'universal',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
@@ -122,7 +121,6 @@ export default {
   ** generate
   */
   generate: {
-    fallback: true,
     async routes () {
       const { $content } = require('@nuxt/content')
       let files = await $content({ deep: true }).only(['path', 'title', 'backgroundImage']).fetch()
