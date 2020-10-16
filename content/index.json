@@ -1,17 +1,17 @@
 [
     {
-        "title": "세번째 글쓰기",
-        "backgroundImage": "back1.jpg",
-        "path": "/3"
-    },
-    {
         "title": "두번째 글쓰기",
-        "backgroundImage": "back1.jpg",
+        "backgroundImage": null,
         "path": "/2"
     },
     {
-        "title": "첫번째 글쓰기 !!",
-        "backgroundImage": "back1.jpg",
+        "title": "세번째 글쓰기",
+        "backgroundImage": null,
+        "path": "/3"
+    },
+    {
+        "title": "Hello World",
+        "backgroundImage": null,
         "path": "/1"
     }
 ]
