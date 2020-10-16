@@ -1,0 +1,6 @@
+@import "./color";
+
+::selection {
+  color: $color-selector-text;
+  background-color: $color-selector-background;
+}
