@@ -66,41 +66,6 @@ article {
   z-index: 10;
   position: relative;
   background-color: white;
-
-  .content {
-    max-width: 680px;
-    margin: 0 auto;
-    font-size: 21px;
-
-    @media screen and (max-width: 600px) {
-      font-size: 18px;
-    }
-
-    p {
-      font-size: 1em;
-      margin-bottom: 1em;
-      line-height: 1.66em;
-    }
-
-    pre {
-      margin-bottom: 1em;
-    }
-
-    code {
-      font-family: "Noto Sans KR", sans-serif;
-      padding: 0;
-    }
-
-    h1, h2, h3, h4, h5, h6, {
-      font-family: "Noto Sans KR", sans-serif;
-      font-weight: 700;
-    }
-
-    ul, ol {
-      margin-bottom: 1em;
-      line-height: 1.66em;
-    }
-  }
 }
 
 .cover {
