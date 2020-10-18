@@ -59,7 +59,6 @@ section {
 }
 
 article {
-
   margin-top: 100vh;
   min-height: 100vh;
 
