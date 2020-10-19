@@ -1,24 +1,29 @@
 <template>
   <section>
-    <div class="cover">
-      <v-img
-        :src="`/blog/images/${backgroundImage}`"
-        :dark="dark"
-        class="bg"
-      >
-        <div class="text-area">
-          <h1 class="mb-sm-2 mb-md-4">
-            {{ title }}
-          </h1>
-          <h3>
-            {{ subtitle }}
-          </h3>
-        </div>
-      </v-img>
+    <div class="cover-wrap">
+      <div class="cover">
+        <v-img
+          :src="`/blog/images/${backgroundImage}`"
+          :dark="dark"
+          class="bg"
+        >
+          <div class="text-area">
+            <h1 class="mb-sm-2 mb-md-4">
+              {{ title }}
+            </h1>
+            <h3>
+              {{ subtitle }}
+            </h3>
+          </div>
+        </v-img>
+      </div>
     </div>
 
     <article
       class="pa-4 pa-md-6 pa-lg-8"
+      :style="[{
+        marginTop: css.marginTop
+      }]"
     >
       <nuxt-content
         :document="doc"
@@ -45,6 +50,27 @@ export default {
       subtitle,
       dark
     }
+  },
+  data () {
+    return {
+      height: 0
+    }
+  },
+  computed: {
+    css () {
+      return {
+        marginTop: `${this.height}px`
+      }
+    }
+  },
+  beforeMount () {
+    this.height = window.innerHeight
+    window.addEventListener('resize', () => {
+      this.height = window.innerHeight
+    })
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', () => {})
   }
 }
 </script>
@@ -59,26 +85,29 @@ section {
 }
 
 article {
-  margin-top: 100vh;
   min-height: 100vh;
 
   z-index: 10;
-  position: relative;
   background-color: white;
 }
 
+.cover-wrap {
+  user-select: none;
+  z-index: 0;
+}
+
 .cover {
-  width: 100vw;
-  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
-
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   .bg {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
     .text-area {
       position: absolute;
       top: 29.5%;
