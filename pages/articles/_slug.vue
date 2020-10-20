@@ -17,19 +17,18 @@
           </div>
         </v-img>
       </div>
+      <article
+        class="pa-4 pa-md-6 pa-lg-8"
+        :style="[{
+          marginTop: css.marginTop
+        }]"
+      >
+        <nuxt-content
+          :document="doc"
+          class="content"
+        />
+      </article>
     </div>
-
-    <article
-      class="pa-4 pa-md-6 pa-lg-8"
-      :style="[{
-        marginTop: css.marginTop
-      }]"
-    >
-      <nuxt-content
-        :document="doc"
-        class="content"
-      />
-    </article>
   </section>
 </template>
 
@@ -92,7 +91,6 @@ article {
 }
 
 .cover-wrap {
-  user-select: none;
   z-index: 0;
 }
 
