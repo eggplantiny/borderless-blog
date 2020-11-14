@@ -46,6 +46,8 @@ export default {
       .filter(key => key !== 'index')
       .map(key => doc[key])
 
+    console.log(doc)
+
     return {
       articles,
       doc

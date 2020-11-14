@@ -92,16 +92,17 @@ article {
 
 .cover-wrap {
   z-index: 0;
+  position: relative;
 }
 
 .cover {
   position: fixed;
   top: 0;
   left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
+  background-color: white;
   .bg {
     width: 100%;
     height: 100%;
