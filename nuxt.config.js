@@ -1,6 +1,16 @@
 import fs from 'fs'
 import colors from 'vuetify/es5/util/colors'
 
+async function generateIndex () {
+  const { $content } = require('@nuxt/content')
+  const files = await $content({ deep: true })
+    .only(['path', 'title', 'backgroundImage'])
+    .fetch()
+    .then(files => files.filter(({ path }) => path !== '/index'))
+  await fs.writeFileSync('./content/index.json', JSON.stringify(files, null, 4))
+  return files
+}
+
 export default {
   /*
   ** Nuxt rendering mode
@@ -122,12 +132,7 @@ export default {
   */
   generate: {
     async routes () {
-      const { $content } = require('@nuxt/content')
-      let files = await $content({ deep: true }).only(['path', 'title', 'backgroundImage']).fetch()
-      files = files.filter(({ path }) => path !== '/index')
-
-      await fs.writeFileSync('./content/index.json', JSON.stringify(files, null, 4))
-
+      const files = await generateIndex()
       return files.map(file => file.path === '/index' ? '/' : `/articles${file.path}`)
     }
   }

@@ -1,17 +1,26 @@
 [
     {
-        "title": "두번째 글쓰기",
-        "backgroundImage": null,
-        "path": "/2"
-    },
-    {
         "title": "세번째 글쓰기",
         "backgroundImage": null,
-        "path": "/3"
+        "path": "/3",
+        "extension": ".md"
+    },
+    {
+        "title": "두번째 글쓰기",
+        "backgroundImage": null,
+        "path": "/2",
+        "extension": ".md"
     },
     {
         "title": "Hello World",
         "backgroundImage": null,
-        "path": "/1"
+        "path": "/1",
+        "extension": ".md"
+    },
+    {
+        "title": "Java 8 에서 함수형 프로그래밍 해보기",
+        "backgroundImage": null,
+        "path": "/4",
+        "extension": ".md"
     }
 ]
