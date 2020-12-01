@@ -1,11 +1,21 @@
+header {
+  height: 80px;
+  max-width: 680px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 600;
+}
 
 .content {
   max-width: 680px;
   margin: 0 auto;
   font-size: 21px;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 680px) {
     font-size: 18px;
+    padding: 0 18px;
   }
 
   p {
@@ -16,16 +26,26 @@
 
   pre {
     margin-bottom: 1em;
+    border-radius: 20px;
   }
 
   code {
     font-family: "Noto Sans KR", sans-serif;
-    padding: 0;
+    background-color: rgba(0, 0, 0, 0) !important;
+    padding: 0 !important;
+
+    .token {
+      background: rgb(0, 0, 0, 0) !important;
+    }
   }
 
   h1, h2, h3, h4, h5, h6, {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 700;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    height: 60px;
   }
 
   ul, ol {
