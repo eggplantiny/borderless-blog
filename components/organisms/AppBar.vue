@@ -31,7 +31,7 @@ export default {
   name: 'AppBar',
   computed: {
     dark () {
-      return this.$store.getters['app/dark']
+      return this.$store.getters['app/dark'] === true
     }
   },
   methods: {

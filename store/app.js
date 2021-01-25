@@ -5,15 +5,13 @@ export const state = () => ({
 
 export const mutations = {
   DARK (state, value) {
-    state.darkMode = value
+    state.dark = value
   }
 }
 
 export const actions = {
-  toggleDark (params) {
-    const { commit, getters } = params
-    console.log(params)
-    const dark = getters.dark === true
+  toggleDark ({ commit }) {
+    const dark = localStorage.getItem('dark') === 'true'
     commit('DARK', !dark)
     localStorage.setItem('dark', `${!dark}`)
   },

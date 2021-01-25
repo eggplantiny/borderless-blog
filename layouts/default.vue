@@ -30,7 +30,7 @@ export default {
     }
   },
   watch: {
-    darkMode (value) {
+    dark (value) {
       this.$vuetify.theme.dark = value
     }
   },
