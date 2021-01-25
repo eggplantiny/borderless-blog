@@ -15,20 +15,16 @@
 <script>
 export default {
   async asyncData ({ $content, params }) {
-    console.log(params.slug)
-    const doc = await $content(params.slug || 'index').fetch()
+    console.log('fucking', params)
+    const doc = await $content(`/articles/${params.slug}`).fetch()
 
-    const backgroundImage = doc.backgroundImage
     const title = doc.title
     const subtitle = doc.subtitle
-    const dark = doc.dark === true
 
     return {
       doc,
-      backgroundImage,
       title,
-      subtitle,
-      dark
+      subtitle
     }
   },
   beforeMount () {

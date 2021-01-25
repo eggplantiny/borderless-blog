@@ -100,8 +100,16 @@ export default {
     theme: {
       themes: {
         disable: true,
+        light: {
+          primary: colors.indigo.lighten2,
+          secondary: '#ffe5b9',
+          accent: '#487e95',
+          info: '#bee5d3',
+          button: '#2d2d2d',
+          text: '#2d2d2d'
+        },
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.indigo.lighten2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -126,14 +134,5 @@ export default {
       '@nuxt/types',
       '@nuxt/content'
     ]
-  },
-  /*
-  ** generate
-  */
-  generate: {
-    async routes () {
-      const files = await generateIndex()
-      return files.map(file => file.path === '/index' ? '/' : `/articles${file.path}`)
-    }
   }
 }

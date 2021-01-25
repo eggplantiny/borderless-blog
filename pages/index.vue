@@ -39,7 +39,8 @@ function strParse (str) {
 export default {
   name: 'Root',
   async asyncData ({ $content }) {
-    const doc = await $content('index').fetch()
+    const doc = await $content('articles').fetch()
+    console.log(doc)
     const articles = Object
       .keys(doc)
       .filter(key => strParse(key) !== null)
@@ -53,7 +54,7 @@ export default {
   },
   methods: {
     onClickCard (article) {
-      this.$router.push(`/articles${article.path}`)
+      this.$router.push(article.path)
     }
   }
 }

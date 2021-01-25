@@ -1,20 +1,28 @@
 
 export const state = () => ({
-  darkMode: false
+  dark: false
 })
 
 export const mutations = {
-  darkMode (state, value) {
+  DARK (state, value) {
     state.darkMode = value
   }
 }
 
 export const actions = {
-  toggleDarkMode ({ commit }, value = true) {
-    commit('darkMode', value)
+  toggleDark (params) {
+    const { commit, getters } = params
+    console.log(params)
+    const dark = getters.dark === true
+    commit('DARK', !dark)
+    localStorage.setItem('dark', `${!dark}`)
+  },
+  fetchDark ({ commit }) {
+    const dark = localStorage.getItem('dark') === 'true'
+    commit('DARK', dark)
   }
 }
 
 export const getters = {
-  darkMode: state => state.darkMode
+  dark: state => state.dark
 }

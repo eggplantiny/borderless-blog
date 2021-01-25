@@ -1,8 +1,9 @@
 <template>
   <v-app
-    :dark="darkMode"
+    :dark="dark"
     class="ma-0 pa-0"
   >
+    <app-bar />
     <v-main>
       <v-container
         fluid
@@ -16,20 +17,25 @@
 
 <script>
 
+import AppBar from '../components/organisms/AppBar'
 export default {
+  components: { AppBar },
   data () {
     return {
     }
   },
   computed: {
-    darkMode () {
-      return this.$store.getters['app/darkMode']
+    dark () {
+      return this.$store.getters['app/dark']
     }
   },
   watch: {
     darkMode (value) {
       this.$vuetify.theme.dark = value
     }
+  },
+  beforeMount () {
+    this.$store.dispatch('app/fetchDark')
   },
   head () {
     return {
