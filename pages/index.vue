@@ -4,23 +4,28 @@
     class="layout"
   >
     <template
-      v-for="(article, index) in articles"
+      v-for="article of articles"
     >
       <v-hover
-        :key="index"
+        :key="article.slug"
         v-slot="{ hover }"
       >
-        <v-card
-          flat
-          :elevation="hover ? 5 : 0"
-          class="card-transition"
-          :class="hover ? 'my-3' : ''"
-          @click="onClickCard(article)"
+        <nuxt-link
+          :to="`/blog/${article.slug}`"
         >
-          <v-card-title>
-            {{ article.title }}
-          </v-card-title>
-        </v-card>
+          <v-card
+            flat
+            class="card-transition"
+            :class="hover ? 'my-1 outlined' : ''"
+          >
+            <v-card-title>
+              {{ article.title }}
+            </v-card-title>
+            <v-card-text>
+              {{ article.description }}
+            </v-card-text>
+          </v-card>
+        </nuxt-link>
       </v-hover>
     </template>
   </v-layout>
@@ -28,28 +33,18 @@
 
 <script>
 
-function strParse (str) {
-  try {
-    return JSON.parse(str)
-  } catch (e) {
-    return null
-  }
-}
-
 export default {
   name: 'Root',
-  async asyncData ({ $content }) {
-    const doc = await $content('articles').fetch()
-    console.log(doc)
-    const articles = Object
-      .keys(doc)
-      .filter(key => strParse(key) !== null)
-      .filter(key => key !== 'index')
-      .map(key => doc[key])
+  async asyncData ({ $content, params }) {
+    const zxc = await $content('articles').fetch()
+    console.log(zxc)
+    const articles = await $content('articles', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'author'])
+      .sortBy('createdAt', 'desc')
+      .fetch()
 
     return {
-      articles,
-      doc
+      articles
     }
   },
   methods: {
@@ -67,7 +62,15 @@ export default {
     margin-right: auto;
   }
 
+  .outlined {
+    border: black solid 2px;
+  }
+
   .card-transition {
-    transition: box-shadow 200ms, margin-bottom 200ms, margin-top 200ms;
+    transition: margin-bottom 200ms, margin-top 200ms;
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

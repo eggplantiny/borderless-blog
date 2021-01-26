@@ -1,15 +1,4 @@
-import fs from 'fs'
 import colors from 'vuetify/es5/util/colors'
-
-async function generateIndex () {
-  const { $content } = require('@nuxt/content')
-  const files = await $content({ deep: true })
-    .only(['path', 'title', 'backgroundImage'])
-    .fetch()
-    .then(files => files.filter(({ path }) => path !== '/index'))
-  await fs.writeFileSync('./content/index.json', JSON.stringify(files, null, 4))
-  return files
-}
 
 export default {
   /*
@@ -25,9 +14,9 @@ export default {
   /*
   ** router
   */
-  router: {
-    base: '/blog/'
-  },
+  // router: {
+  //   base: '/blog/'
+  // },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head

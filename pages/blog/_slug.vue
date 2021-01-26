@@ -15,8 +15,8 @@
 <script>
 export default {
   async asyncData ({ $content, params }) {
-    console.log('fucking', params)
-    const doc = await $content(`/articles/${params.slug}`).fetch()
+    console.log(params.slug)
+    const doc = await $content('articles', params.slug).fetch()
 
     const title = doc.title
     const subtitle = doc.subtitle
