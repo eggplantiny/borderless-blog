@@ -16,7 +16,7 @@
           <v-card
             flat
             class="card-transition"
-            :class="hover ? 'my-1 outlined' : ''"
+            :class="hover ? 'outlined' : ''"
           >
             <v-card-title>
               {{ article.title }}
@@ -36,8 +36,6 @@
 export default {
   name: 'Root',
   async asyncData ({ $content, params }) {
-    const zxc = await $content('articles').fetch()
-    console.log(zxc)
     const articles = await $content('articles', params.slug)
       .only(['title', 'description', 'img', 'slug', 'author'])
       .sortBy('createdAt', 'desc')
@@ -45,11 +43,6 @@ export default {
 
     return {
       articles
-    }
-  },
-  methods: {
-    onClickCard (article) {
-      this.$router.push(article.path)
     }
   }
 }

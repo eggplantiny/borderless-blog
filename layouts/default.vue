@@ -2,6 +2,7 @@
   <v-app
     :dark="dark"
     class="ma-0 pa-0"
+    v-show="show"
   >
     <app-bar />
     <v-main>
@@ -22,6 +23,7 @@ export default {
   components: { AppBar },
   data () {
     return {
+      show: false
     }
   },
   computed: {
@@ -34,8 +36,10 @@ export default {
       this.$vuetify.theme.dark = value
     }
   },
-  beforeMount () {
-    this.$store.dispatch('app/fetchDark')
+  async beforeMount () {
+    this.show = false
+    await this.$store.dispatch('app/fetchDark')
+    this.show = true
   },
   head () {
     return {
