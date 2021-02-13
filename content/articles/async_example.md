@@ -1,17 +1,6 @@
----
-title: Promise.allSettled 가 필요한 순간
-description: Promise.allSettled 가 필요한 순간
-img: https://images.unsplash.com/photo-1580752300992-559f8e0734e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80
-alt: nice image
-author: eggplantiny
-name: eggplantiny
-tags:
-- web development
-- promise
-- allSettled
-- javascript
----
-우리는 발전하는 Javascript 덕에 수 없이 많은 구원을 받았다 믿고있다. 특히, 비동기 작업을 동기 작업처럼 다룰 수 있는 Async / Await 문법을 접하고 난 뒤로 개발하면서 막혀있던 한켠의 구멍이 뚫린듯한 느낌이 들었다. 그렇게 난 비동기의 고수가 된듯한 기분을 만끽하며 행복한 시간을 보낼줄 알았지만 개발을 진행하다가 한가지 문제에 봉착했다.
+우리는 발전하는 Javascript 덕에 수 없이 많은 구원을 받았다 믿고있다.
+
+특히, 비동기 작업을 동기 작업처럼 다룰 수 있는 Async / Await 문법을 접하고 난 뒤로 개발하면서 막혀있던 한켠의 구멍이 뚫린듯한 느낌이 들었다. 그렇게 난 비동기의 고수가 된듯한 기분을 만끽하며 행복한 시간을 보낼줄 알았지만 개발을 진행하다가 한가지 문제에 봉착했다.
 
 ## 문제가 뭐야? 😨
 
@@ -19,7 +8,7 @@ tags:
 
 ## 잠깐, 그런데 여기서 Settled 란 무엇인가?
 
-Promise 가 fulfilled 했다는 의미는 모든 비동기 작업을 성공적으로 이행했다는 의미이다.
+**Promise 가 fulfilled 했다는 의미는 모든 비동기 작업을 성공적으로 이행했다는 의미**이다.
 우리가 Promise.all 으로 모든 Promisefmf fulfilled 됬는지 확인을 하게된다면 **중간에 실패한 경우가 있을때는 아무것도 얻을 수 없을것**이다.
 
 ```jsx
@@ -57,7 +46,7 @@ fulfilledPromises()
 
 > Promise.all() 메서드는 순회 가능한 객체에 주어진 모든 프로미스가 이행한 후, 혹은 프로미스가 주어지지 않았을 때 이행하는 Promise를 반환합니다. **주어진 프로미스 중 하나가 거부하는 경우, 첫 번째로 거절한 프로미스의 이유를 사용해 자신도 거부합니다.**
 
-이와같이 주어진 Promise 중 하나라도 Reject 되는 경우 모두 이행취소가 되어버리기 때문이다.
+이와같이 **주어진 Promise 중 하나라도 Reject 되는 경우 모두 이행취소가 되어버리기 때문**이다.
 스크래핑시 네트워크에러나 컨텐츠의 주소를 찾지 못하거나, 서버에서 내 요청을 거부해버리는 경우가 왕왕 발생하기 때문에 Promise.all 메서드로 한번에 묶에서 작업을 처리해버리면 한개 요청의 실패로 엮여있는 모든 Promise 가 실패해버리는 일이 꽤 자주 발생했다. 많은 Promise 들 중 하나가 실패하더라도 이행처리를 할 수 있는 방법은 없을까?
 
 ## 그럼 어떻게 해야해?🤔
@@ -105,4 +94,8 @@ allSettledPromises()
 // ]
 ```
 
-실행을 해보면 위 결과값처럼 성공을하던 실패를 하던 무조건 일단 배열에 결과값을 담아주는걸 볼 수 있다. 성공했을 땐 status 가 'fulfilled', 실패했을 땐 'rejected' 인걸 확인할 수 있다. 이처럼 Promise.allSettled 를 이용한다면 다중의 Promise 를 동시에 처리하면서 모든 Promise 가 성공하길 기도하지 않아도 된다. 그렇다고 너무 Promise.allSettled 를 맹목적으로 믿고 사용하면 안된다. 아직 표준에 등제된지 얼마되지 않은 따끈따끈한 기능이라 구형 브라우저나 Node.js 를 사용한다면 Pollyfil 를 따로 구현해줘야하며 무엇보다 Promise.all 의 상위호환이 아닌 편의성을 위해 구현된 기능이기 때문에 필요한 기능을 적절한 판단으로 적재적소에 사용하는게 좋다.
+실행을 해보면 위 결과값처럼 성공을하던 실패를 하던 무조건 일단 배열에 결과값을 담아주는걸 볼 수 있다. **성공했을 땐 status 가 'fulfilled', 실패했을 땐 'rejected'** 인걸 확인할 수 있다.
+
+## 결론은?
+
+이처럼 Promise.allSettled 를 이용한다면 다중의 Promise 를 동시에 처리하면서 모든 Promise 가 성공하길 기도하지 않아도 된다. 그렇다고 너무 Promise.allSettled 를 맹목적으로 믿고 사용하면 안된다. 아직 표준에 등제된지 얼마되지 않은 따끈따끈한 기능이라 **구형 브라우저나 Node.js 를 사용한다면 Pollyfil 를 따로 구현** 해줘야하며 무엇보다 **Promise.all 의 상위호환이 아닌 편의성을 위해 구현된 기능이기 때문에 필요한 기능을 적절한 판단으로 적재적소에 사용하는게 좋다**.
