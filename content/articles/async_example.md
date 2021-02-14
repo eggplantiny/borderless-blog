@@ -1,10 +1,28 @@
+---
+title: Promise.allSettled 가 필요한 순간
+description: Promise.allSettled 가 필요한 순간
+img: https://images.unsplash.com/photo-1580752300992-559f8e0734e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80
+alt: nice image
+author:
+  name: eggplantiny
+  bio: All about Peter and what he does and where he works
+  img: https://images.unsplash.com/photo-1533636721434-0e2d61030955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80
+tags:
+  - web development
+  - javascript
+  - promise
+  - allSettlted
+---
+
 우리는 발전하는 Javascript 덕에 수 없이 많은 구원을 받았다 믿고있다.
 
 특히, 비동기 작업을 동기 작업처럼 다룰 수 있는 Async / Await 문법을 접하고 난 뒤로 개발하면서 막혀있던 한켠의 구멍이 뚫린듯한 느낌이 들었다. 그렇게 난 비동기의 고수가 된듯한 기분을 만끽하며 행복한 시간을 보낼줄 알았지만 개발을 진행하다가 한가지 문제에 봉착했다.
 
+
 ## 문제가 뭐야? 😨
 
 가장 처음으로 막힌곳은 스크래핑 모듈을 만들면서 필요한 기능을 만들때였다. 스크래핑 작업을 할때 한번에 너무 많은 Request 를 서버에 날리게 되면 서버에 과부하를 줄 수 있다. 그렇게 되면 내 IP 는 차단이 될것이고 그럼 필요한 정보를 스크래핑 하는게 불가능하게 된다. 😭 그래서 한번에 스크래핑을 하는 갯수를 제한 후 모든 작업이 Settled 한 후 다음 목록에서 스크래핑 하는 코드를 작성해야 했다.
+
 
 ## 잠깐, 그런데 여기서 Settled 란 무엇인가?
 
@@ -48,6 +66,7 @@ fulfilledPromises()
 
 이와같이 **주어진 Promise 중 하나라도 Reject 되는 경우 모두 이행취소가 되어버리기 때문**이다.
 스크래핑시 네트워크에러나 컨텐츠의 주소를 찾지 못하거나, 서버에서 내 요청을 거부해버리는 경우가 왕왕 발생하기 때문에 Promise.all 메서드로 한번에 묶에서 작업을 처리해버리면 한개 요청의 실패로 엮여있는 모든 Promise 가 실패해버리는 일이 꽤 자주 발생했다. 많은 Promise 들 중 하나가 실패하더라도 이행처리를 할 수 있는 방법은 없을까?
+
 
 ## 그럼 어떻게 해야해?🤔
 
@@ -95,6 +114,7 @@ allSettledPromises()
 ```
 
 실행을 해보면 위 결과값처럼 성공을하던 실패를 하던 무조건 일단 배열에 결과값을 담아주는걸 볼 수 있다. **성공했을 땐 status 가 'fulfilled', 실패했을 땐 'rejected'** 인걸 확인할 수 있다.
+
 
 ## 결론은?
 
