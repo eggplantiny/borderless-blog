@@ -14,9 +14,9 @@ export default {
   /*
   ** router
   */
-  // router: {
-  //   base: '/blog/'
-  // },
+  router: {
+    base: '/blog/'
+  },
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head

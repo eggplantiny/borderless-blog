@@ -11,7 +11,7 @@
         v-slot="{ hover }"
       >
         <nuxt-link
-          :to="`/blog/${article.slug}`"
+          :to="`/articles/${article.slug}`"
         >
           <v-card
             flat

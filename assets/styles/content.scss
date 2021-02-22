@@ -11,7 +11,8 @@ header {
 .content {
   max-width: 680px;
   margin: 0 auto;
-  font-size: 21px;
+  font-size: 18px;
+  line-height: 1.66;
 
   @media screen and (max-width: 680px) {
     font-size: 18px;
@@ -42,6 +43,12 @@ header {
   h1, h2, h3, h4, h5, h6, {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 700;
+    margin-top: 2em;
+  }
+
+  blockquote {
+    background-color: #7494EA;
+    color: white;
   }
 
   ul, ol {
